@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Noah &amp; Bella English</string>
+    <string name="title_splash">Noah &amp; Bella</string>
+    <string name="subtitle_splash">English Adventure!</string>
+    <string name="btn_play">🎮 PLAY NOW!</string>
+    <string name="btn_back">←</string>
+    <string name="btn_play_again">🔄 Play Again</string>
+    <string name="btn_levels">🗺️ Levels</string>
+    <string name="btn_home">🏠 Home</string>
+    <string name="title_levels">Choose a Level! 🗺️</string>
+    <string name="level_complete">Level Complete!</string>
+</resources>
