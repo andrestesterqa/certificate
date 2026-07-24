@@ -26,21 +26,26 @@ class LevelCompleteActivity : AppCompatActivity() {
         val total = intent.getIntExtra(EXTRA_TOTAL, 0)
         val levelName = intent.getStringExtra(EXTRA_LEVEL_NAME) ?: ""
         val levelEmoji = intent.getStringExtra(EXTRA_LEVEL_EMOJI) ?: "⭐"
+        val adventureEnding = intent.getStringExtra(EXTRA_ADVENTURE_ENDING) ?: ""
 
         binding.tvLevelEmoji.text = levelEmoji
-        binding.tvLevelName.text = "$levelName Complete!"
-        binding.tvScore.text = "$score / $total Correct"
+        binding.tvLevelName.text = "$levelName\n¡Completado!"
+        binding.tvScore.text = "$score / $total Correctas"
         binding.tvStars.text = "⭐".repeat(stars) + "☆".repeat(3 - stars)
 
         binding.tvMessage.text = when (stars) {
-            3 -> "🏆 Perfect! Noah & Bella are proud of you!"
-            2 -> "🌟 Great job! You're learning fast!"
-            1 -> "😊 Good try! Practice makes perfect!"
-            else -> "💪 Don't give up! Try again!"
+            3 -> "🏆 ¡Perfecto! ¡Eres un genio del inglés!"
+            2 -> "🌟 ¡Excelente! ¡Aprendiste muy rápido!"
+            1 -> "😊 ¡Bien hecho! ¡La práctica te hace maestro!"
+            else -> "💪 ¡No te rindas! ¡Inténtalo de nuevo!"
         }
 
-        binding.tvNoahSays.text = if (stars >= 2) "Noah: \"You're amazing! 😺\"" else "Noah: \"You can do it! 😺\""
-        binding.tvBellaSays.text = if (stars >= 2) "Bella: \"Keep it up! 🐱\"" else "Bella: \"Let's try again! 🐱\""
+        if (adventureEnding.isNotEmpty()) {
+            binding.tvAdventureEnding.text = adventureEnding
+        }
+
+        binding.tvNoahSays.text = if (stars >= 2) "Noah: \"¡Eres increíble! 😺\"" else "Noah: \"¡Tú puedes! 😺\""
+        binding.tvBellaSays.text = if (stars >= 2) "Bella: \"¡Sigue así! 🐱\"" else "Bella: \"¡Inténtalo de nuevo! 🐱\""
 
         val bounce = AnimationUtils.loadAnimation(this, R.anim.bounce)
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
@@ -50,16 +55,16 @@ class LevelCompleteActivity : AppCompatActivity() {
         binding.btnPlayAgain.setOnClickListener { finish() }
 
         binding.btnLevels.setOnClickListener {
-            val intent = Intent(this, LevelsActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            startActivity(Intent(this, LevelsActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            })
             finish()
         }
 
         binding.btnHome.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
+            startActivity(Intent(this, HomeActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            })
             finish()
         }
     }
@@ -70,5 +75,6 @@ class LevelCompleteActivity : AppCompatActivity() {
         const val EXTRA_TOTAL = "extra_total"
         const val EXTRA_LEVEL_NAME = "extra_level_name"
         const val EXTRA_LEVEL_EMOJI = "extra_level_emoji"
+        const val EXTRA_ADVENTURE_ENDING = "extra_adventure_ending"
     }
 }

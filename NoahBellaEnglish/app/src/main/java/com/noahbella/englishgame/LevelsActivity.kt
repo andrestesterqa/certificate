@@ -26,9 +26,7 @@ class LevelsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         prefs = PreferencesManager(this)
-
         binding.btnBack.setOnClickListener { finish() }
-
         binding.rvLevels.layoutManager = GridLayoutManager(this, 2)
     }
 
@@ -56,17 +54,17 @@ class LevelsActivity : AppCompatActivity() {
     }
 
     private fun buildLevels() = listOf(
-        Level(1, "Alphabet", "Learn A-Z letters!", "🔤", "#FF6B6B", "#FF8E53",
+        Level(1, "El Bosque Encantado", "Palabras del bosque mágico 🌲", "🌲", "#1B5E20", "#66BB6A",
             prefs.isLevelUnlocked(1), prefs.getLevelStars(1)),
-        Level(2, "Colors", "Know your colors!", "🎨", "#4ECDC4", "#44A08D",
+        Level(2, "El Océano Misterioso", "Secretos del mar profundo 🌊", "🌊", "#01579B", "#4FC3F7",
             prefs.isLevelUnlocked(2), prefs.getLevelStars(2)),
-        Level(3, "Numbers", "Count to ten!", "🔢", "#96E6A1", "#3D9970",
+        Level(3, "La Aventura Espacial", "Explora las galaxias 🚀", "🚀", "#0D0D2B", "#311B92",
             prefs.isLevelUnlocked(3), prefs.getLevelStars(3)),
-        Level(4, "Animals", "Meet the animals!", "🐾", "#FFD93D", "#FF9F1C",
+        Level(4, "La Selva Salvaje", "Safari con animales exóticos 🦁", "🦁", "#33691E", "#FF6F00",
             prefs.isLevelUnlocked(4), prefs.getLevelStars(4)),
-        Level(5, "Fruits", "Taste the fruits!", "🍎", "#A8E6CF", "#27AE60",
+        Level(5, "El Reino de la Comida", "¡Fiesta de sabores! 🍕", "🍕", "#BF360C", "#FF8F00",
             prefs.isLevelUnlocked(5), prefs.getLevelStars(5)),
-        Level(6, "Body Parts", "Know your body!", "🫀", "#F8B4C8", "#E84393",
+        Level(6, "El Castillo Mágico", "¡Rompe el hechizo del dragón! 🏰", "🏰", "#4A148C", "#AD1457",
             prefs.isLevelUnlocked(6), prefs.getLevelStars(6))
     )
 }

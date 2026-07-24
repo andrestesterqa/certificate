@@ -4,19 +4,31 @@ import com.noahbella.englishgame.model.QuizQuestion
 
 class AnimalsActivity : BaseQuizActivity() {
     override fun getLevelId() = 4
-    override fun getLevelName() = "Animals"
-    override fun getLevelEmoji() = "🐾"
+    override fun getLevelName() = "La Selva Salvaje"
+    override fun getLevelEmoji() = "🦁"
+    override fun getAdventureBackground() = R.drawable.bg_adventure_4
+
+    override fun getStoryIntro() =
+        "🦁 ¡La Selva Salvaje está llena de misterios!\n\nLos animales más exóticos del mundo guardan secretos increíbles para Noah y Bella.\n\n¡Escucha cada animal y elige su primera letra!"
+
+    override fun getAdventureEnding() =
+        "🎖️ ¡DOMASTE LA SELVA SALVAJE!\n\nNoah y Bella te coronaron como el GRAN EXPLORADOR. ¡El REINO DE LA COMIDA te aguarda! 🍕"
+
+    override fun getMilestones() = mapOf(
+        2 to "🦜 ¡Un loro sabio te enseñó el GRITO SECRETO DE LA SELVA!\n\nAhora los animales confían en ti 🌿",
+        5 to "🐆 ¡El jaguar guardián te entregó su AMULETO DE LA SELVA!\n\n¡Eres ya un explorador legendario! 🏅"
+    )
 
     override fun createQuestions() = listOf(
-        QuizQuestion("What animal is this?", "🐶", "DOG", listOf("CAT", "BIRD", "FISH")),
-        QuizQuestion("What animal is this?", "🐱", "CAT", listOf("DOG", "LION", "BEAR")),
-        QuizQuestion("What animal is this?", "🐰", "RABBIT", listOf("HAMSTER", "MOUSE", "SQUIRREL")),
-        QuizQuestion("What animal is this?", "🐸", "FROG", listOf("TOAD", "LIZARD", "TURTLE")),
-        QuizQuestion("What animal is this?", "🐘", "ELEPHANT", listOf("HIPPO", "RHINO", "GIRAFFE")),
-        QuizQuestion("What animal is this?", "🦁", "LION", listOf("TIGER", "LEOPARD", "CHEETAH")),
-        QuizQuestion("What animal is this?", "🦋", "BUTTERFLY", listOf("BEE", "FLY", "LADYBUG")),
-        QuizQuestion("What animal is this?", "🐢", "TURTLE", listOf("FROG", "LIZARD", "SNAKE")),
-        QuizQuestion("What animal is this?", "🦜", "PARROT", listOf("EAGLE", "OWL", "PENGUIN")),
-        QuizQuestion("What animal is this?", "🐬", "DOLPHIN", listOf("WHALE", "SHARK", "SEAL"))
+        QuizQuestion("ELEPHANT", "🐘", "E", listOf("I", "A", "O")),
+        QuizQuestion("FLAMINGO", "🦩", "F", listOf("B", "L", "P")),
+        QuizQuestion("GORILLA", "🦍", "G", listOf("J", "R", "B")),
+        QuizQuestion("HIPPO", "🦛", "H", listOf("B", "P", "W")),
+        QuizQuestion("IGUANA", "🦎", "I", listOf("E", "A", "U")),
+        QuizQuestion("JAGUAR", "🐆", "J", listOf("G", "P", "Y")),
+        QuizQuestion("KANGAROO", "🦘", "K", listOf("C", "G", "R")),
+        QuizQuestion("LEMUR", "🐒", "L", listOf("M", "R", "B")),
+        QuizQuestion("MONKEY", "🐵", "M", listOf("N", "B", "K")),
+        QuizQuestion("NEST", "🪺", "N", listOf("M", "T", "S"))
     )
 }

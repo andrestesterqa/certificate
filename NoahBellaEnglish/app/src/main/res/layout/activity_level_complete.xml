@@ -93,12 +93,26 @@
                     android:id="@+id/tvMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="🏆 Perfect! Noah &amp; Bella are proud of you!"
+                    android:text="🏆 ¡Perfecto! ¡Eres un genio del inglés!"
                     android:textSize="16sp"
                     android:textColor="#334455"
                     android:fontFamily="sans-serif-rounded"
                     android:gravity="center"
                     android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tvAdventureEnding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:textColor="#5B4AE8"
+                    android:fontFamily="sans-serif-rounded"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    android:layout_marginTop="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

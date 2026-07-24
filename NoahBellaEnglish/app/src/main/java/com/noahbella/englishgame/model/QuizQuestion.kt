@@ -1,7 +1,7 @@
 package com.noahbella.englishgame.model
 
 data class QuizQuestion(
-    val questionText: String,
+    val englishWord: String,
     val questionDisplay: String,
     val correctAnswer: String,
     val wrongAnswers: List<String>

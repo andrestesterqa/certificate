@@ -1,5 +1,6 @@
 package com.noahbella.englishgame
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -13,11 +14,13 @@ import androidx.core.content.ContextCompat
 import com.noahbella.englishgame.databinding.ActivityQuizBinding
 import com.noahbella.englishgame.model.QuizQuestion
 import com.noahbella.englishgame.util.PreferencesManager
+import com.noahbella.englishgame.util.SoundManager
 
 abstract class BaseQuizActivity : AppCompatActivity() {
 
     protected lateinit var binding: ActivityQuizBinding
     protected lateinit var prefs: PreferencesManager
+    private lateinit var soundManager: SoundManager
 
     private var questions: List<QuizQuestion> = emptyList()
     private var currentIndex = 0
@@ -28,6 +31,10 @@ abstract class BaseQuizActivity : AppCompatActivity() {
     abstract fun getLevelName(): String
     abstract fun getLevelEmoji(): String
     abstract fun createQuestions(): List<QuizQuestion>
+    abstract fun getAdventureBackground(): Int
+    abstract fun getStoryIntro(): String
+    abstract fun getAdventureEnding(): String
+    abstract fun getMilestones(): Map<Int, String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,25 +45,42 @@ abstract class BaseQuizActivity : AppCompatActivity() {
         )
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.root.setBackgroundResource(getAdventureBackground())
 
         prefs = PreferencesManager(this)
+        soundManager = SoundManager(this)
         questions = createQuestions().shuffled()
 
         setupUI()
-        loadQuestion()
+        showIntroThenStart()
     }
 
     private fun setupUI() {
         binding.tvLevelTitle.text = "${getLevelEmoji()} ${getLevelName()}"
         binding.progressBar.max = questions.size
         binding.btnBack.setOnClickListener { finish() }
-
-        val answerButtons = answerButtons()
-        answerButtons.forEach { btn ->
+        binding.btnSpeak.setOnClickListener {
+            if (currentIndex < questions.size) {
+                soundManager.speak(questions[currentIndex].englishWord)
+            }
+        }
+        val answerBtns = answerButtons()
+        answerBtns.forEach { btn ->
             btn.setOnClickListener {
                 if (!answered) onAnswerSelected(btn.text.toString(), btn)
             }
         }
+    }
+
+    private fun showIntroThenStart() {
+        AlertDialog.Builder(this)
+            .setMessage(getStoryIntro())
+            .setPositiveButton("¡A jugar! 🎮") { d, _ ->
+                d.dismiss()
+                loadQuestion()
+            }
+            .setCancelable(false)
+            .show()
     }
 
     private fun loadQuestion() {
@@ -70,8 +94,7 @@ abstract class BaseQuizActivity : AppCompatActivity() {
 
         resetButtons()
         binding.tvFeedback.visibility = View.INVISIBLE
-
-        binding.tvQuestionText.text = q.questionText
+        binding.tvEnglishWord.text = q.englishWord
         binding.tvQuestionDisplay.text = q.questionDisplay
         binding.tvProgress.text = "${currentIndex + 1} / ${questions.size}"
         binding.progressBar.progress = currentIndex + 1
@@ -85,6 +108,10 @@ abstract class BaseQuizActivity : AppCompatActivity() {
         val anim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         binding.tvQuestionDisplay.startAnimation(anim)
         binding.cardQuestion.startAnimation(anim)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            soundManager.speak(q.englishWord)
+        }, 600)
     }
 
     private fun onAnswerSelected(selected: String, tappedBtn: Button) {
@@ -110,22 +137,37 @@ abstract class BaseQuizActivity : AppCompatActivity() {
             binding.tvFeedback.setTextColor(ContextCompat.getColor(this, R.color.wrong_red))
             val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
             tappedBtn.startAnimation(shake)
+            soundManager.speak(questions[currentIndex].englishWord)
         }
 
         binding.tvFeedback.visibility = View.VISIBLE
 
         Handler(Looper.getMainLooper()).postDelayed({
             currentIndex++
-            loadQuestion()
+            val milestone = getMilestones()[currentIndex - 1]
+            if (milestone != null) {
+                showMilestoneDialog(milestone)
+            } else {
+                loadQuestion()
+            }
         }, 1600)
     }
 
+    private fun showMilestoneDialog(text: String) {
+        AlertDialog.Builder(this)
+            .setMessage(text)
+            .setPositiveButton("¡Continuar! 🚀") { d, _ ->
+                d.dismiss()
+                loadQuestion()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
     private fun resetButtons() {
-        val defaultBg = ContextCompat.getColor(this, R.color.answer_button_bg)
-        val defaultText = ContextCompat.getColor(this, R.color.text_dark)
         answerButtons().forEach { btn ->
-            btn.setBackgroundColor(defaultBg)
-            btn.setTextColor(defaultText)
+            btn.setBackgroundResource(R.drawable.bg_answer_button)
+            btn.setTextColor(ContextCompat.getColor(this, R.color.text_dark))
         }
     }
 
@@ -146,18 +188,24 @@ abstract class BaseQuizActivity : AppCompatActivity() {
             putExtra(LevelCompleteActivity.EXTRA_TOTAL, questions.size)
             putExtra(LevelCompleteActivity.EXTRA_LEVEL_NAME, getLevelName())
             putExtra(LevelCompleteActivity.EXTRA_LEVEL_EMOJI, getLevelEmoji())
+            putExtra(LevelCompleteActivity.EXTRA_ADVENTURE_ENDING, getAdventureEnding())
         }
         startActivity(intent)
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        soundManager.shutdown()
+    }
+
     companion object {
         private val correctMessages = listOf(
-            "🎉 Excellent!", "⭐ Amazing!", "🌟 Perfect!", "🎊 Great job!", "🏆 Wonderful!"
+            "🎉 ¡Excelente!", "⭐ ¡Increíble!", "🌟 ¡Perfecto!", "🎊 ¡Muy bien!", "🏆 ¡Fantástico!"
         )
         private val wrongMessages = listOf(
-            "😊 Try again!", "💪 Keep going!", "🤔 Almost there!", "❤️ Don't give up!"
+            "😊 ¡Casi! La respuesta era...", "💪 ¡Sigue intentando!", "🤔 ¡Revisa y aprende!", "❤️ ¡No te rindas!"
         )
     }
 }
