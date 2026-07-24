@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash">
+
+    <!-- Dark ground edge -->
+    <View
+        android:id="@+id/groundDark"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#2E7D32"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Green ground with flowers -->
+    <LinearLayout
+        android:id="@+id/groundGreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal"
+        android:background="#66BB6A"
+        android:paddingTop="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/groundDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌸 🌼 🌿 🌸 🌼 🌿 🌸 🌼 🌿"
+            android:textSize="18sp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Title Banner -->
+    <LinearLayout
+        android:id="@+id/bannerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_splash_banner"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Noah &amp; Bella"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            android:textColor="#FFD700"
+            android:fontFamily="sans-serif-rounded"
+            android:gravity="center"
+            android:shadowColor="#0D47A1"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌟 English Adventure! 🌟"
+            android:textSize="16sp"
+            android:textColor="#E3F2FD"
+            android:fontFamily="sans-serif-rounded"
+            android:gravity="center"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+    <!-- Decorative sky row -->
+    <TextView
+        android:id="@+id/tvSkyDecor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐   ☁️   ⭐   ☁️   ⭐"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/bannerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Characters Row (fills remaining space) -->
+    <LinearLayout
+        android:id="@+id/charsRow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvSkyDecor"
+        app:layout_constraintBottom_toTopOf="@+id/tvLoading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Noah -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivNoahChar"
+                android:layout_width="110dp"
+                android:layout_height="165dp"
+                android:src="@drawable/ic_noah_full"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👔 Noah"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1565C0"
+                android:fontFamily="sans-serif-rounded"
+                android:gravity="center"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="4" />
+        </LinearLayout>
+
+        <!-- Bella -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivBellaChar"
+                android:layout_width="110dp"
+                android:layout_height="165dp"
+                android:src="@drawable/ic_bella_full"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎀 Bella"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#880E4F"
+                android:fontFamily="sans-serif-rounded"
+                android:gravity="center"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="4" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Loading text -->
+    <TextView
+        android:id="@+id/tvLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cargando..."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-rounded"
+        android:shadowColor="#55000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/groundGreen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

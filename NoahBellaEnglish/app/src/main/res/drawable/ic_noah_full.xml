@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="180dp"
+    android:viewportWidth="120"
+    android:viewportHeight="180">
+
+    <!-- Tail (behind body) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#5C6BC0"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:pathData="M88,135 Q118,122 114,152 Q110,168 93,160" />
+
+    <!-- Body -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M36,77 L84,77 Q90,77 90,83 L90,148 Q90,154 84,154 L36,154 Q30,154 30,148 L30,83 Q30,77 36,77 Z" />
+
+    <!-- Belly patch -->
+    <path
+        android:fillColor="#9FA8DA"
+        android:pathData="M44,82 Q60,78 76,82 L76,148 Q60,154 44,148 Z" />
+
+    <!-- Left Arm -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M14,95 L30,95 L30,126 L14,126 Q8,126 8,120 L8,101 Q8,95 14,95 Z" />
+
+    <!-- Left Paw -->
+    <path
+        android:fillColor="#7986CB"
+        android:pathData="M4,126 A12,7 0 1,0 28,126 A12,7 0 1,0 4,126 Z" />
+
+    <!-- Right Arm -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M90,95 L106,95 Q112,95 112,101 L112,120 Q112,126 106,126 L90,126 Z" />
+
+    <!-- Right Paw -->
+    <path
+        android:fillColor="#7986CB"
+        android:pathData="M92,126 A12,7 0 1,0 116,126 A12,7 0 1,0 92,126 Z" />
+
+    <!-- Left Leg -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M35,152 L52,152 L52,172 Q52,178 46,178 L41,178 Q35,178 35,172 Z" />
+
+    <!-- Left Foot -->
+    <path
+        android:fillColor="#7986CB"
+        android:pathData="M29,172 A13,7 0 1,0 55,172 A13,7 0 1,0 29,172 Z" />
+
+    <!-- Right Leg -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M68,152 L85,152 L85,172 Q85,178 79,178 L74,178 Q68,178 68,172 Z" />
+
+    <!-- Right Foot -->
+    <path
+        android:fillColor="#7986CB"
+        android:pathData="M62,172 A13,7 0 1,0 88,172 A13,7 0 1,0 62,172 Z" />
+
+    <!-- Left Ear -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M27,32 L15,5 L47,18 Z" />
+
+    <!-- Left Ear inner -->
+    <path
+        android:fillColor="#F48FB1"
+        android:pathData="M30,29 L21,10 L43,21 Z" />
+
+    <!-- Right Ear -->
+    <path
+        android:fillColor="#5C6BC0"
+        android:pathData="M93,32 L105,5 L73,18 Z" />
+
+    <!-- Right Ear inner -->
+    <path
+        android:fillColor="#F48FB1"
+        android:pathData="M90,29 L99,10 L77,21 Z" />
+
+    <!-- Head -->
+    <path
+        android:fillColor="#7986CB"
+        android:pathData="M22,48 A38,38 0 1,0 98,48 A38,38 0 1,0 22,48 Z" />
+
+    <!-- Left Cheek blush -->
+    <path
+        android:fillColor="#80F48FB1"
+        android:pathData="M31,57 A8,5 0 1,0 47,57 A8,5 0 1,0 31,57 Z" />
+
+    <!-- Right Cheek blush -->
+    <path
+        android:fillColor="#80F48FB1"
+        android:pathData="M73,57 A8,5 0 1,0 89,57 A8,5 0 1,0 73,57 Z" />
+
+    <!-- Left Eye -->
+    <path
+        android:fillColor="#1A237E"
+        android:pathData="M40,44 A7,7 0 1,0 54,44 A7,7 0 1,0 40,44 Z" />
+
+    <!-- Left Eye Shine -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,41 A3,3 0 1,0 54,41 A3,3 0 1,0 48,41 Z" />
+
+    <!-- Right Eye -->
+    <path
+        android:fillColor="#1A237E"
+        android:pathData="M66,44 A7,7 0 1,0 80,44 A7,7 0 1,0 66,44 Z" />
+
+    <!-- Right Eye Shine -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M74,41 A3,3 0 1,0 80,41 A3,3 0 1,0 74,41 Z" />
+
+    <!-- Nose -->
+    <path
+        android:fillColor="#EC407A"
+        android:pathData="M56,56 A4,4 0 1,0 64,56 A4,4 0 1,0 56,56 Z" />
+
+    <!-- Mouth -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1A237E"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M52,62 Q60,70 68,62" />
+
+    <!-- Left Whisker 1 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#C5CAE9"
+        android:strokeWidth="1.5"
+        android:pathData="M8,51 L46,56" />
+
+    <!-- Left Whisker 2 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#C5CAE9"
+        android:strokeWidth="1.5"
+        android:pathData="M8,60 L46,60" />
+
+    <!-- Right Whisker 1 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#C5CAE9"
+        android:strokeWidth="1.5"
+        android:pathData="M112,51 L74,56" />
+
+    <!-- Right Whisker 2 -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#C5CAE9"
+        android:strokeWidth="1.5"
+        android:pathData="M112,60 L74,60" />
+
+    <!-- Bowtie Left wing -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M36,76 L60,82 L36,88 Z" />
+
+    <!-- Bowtie Right wing -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M84,76 L60,82 L84,88 Z" />
+
+    <!-- Bowtie Center Knot -->
+    <path
+        android:fillColor="#B71C1C"
+        android:pathData="M55,82 A5,5 0 1,0 65,82 A5,5 0 1,0 55,82 Z" />
+
+</vector>

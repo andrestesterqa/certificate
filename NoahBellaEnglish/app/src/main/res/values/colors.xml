@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_dark">#1A1A2E</color>
+    <color name="text_medium">#444466</color>
+
+    <color name="primary_purple">#7C4DFF</color>
+    <color name="primary_pink">#E91E63</color>
+    <color name="accent_yellow">#FFD600</color>
+
+    <color name="correct_green">#43A047</color>
+    <color name="wrong_red">#E53935</color>
+    <color name="answer_button_bg">#F0EEFF</color>
+
+    <!-- Level colors -->
+    <color name="level1_start">#FF6B6B</color>
+    <color name="level1_end">#FF8E53</color>
+    <color name="level2_start">#4ECDC4</color>
+    <color name="level2_end">#44A08D</color>
+    <color name="level3_start">#96E6A1</color>
+    <color name="level3_end">#3D9970</color>
+    <color name="level4_start">#FFD93D</color>
+    <color name="level4_end">#FF9F1C</color>
+    <color name="level5_start">#A8E6CF</color>
+    <color name="level5_end">#27AE60</color>
+    <color name="level6_start">#F8B4C8</color>
+    <color name="level6_end">#E84393</color>
+</resources>
