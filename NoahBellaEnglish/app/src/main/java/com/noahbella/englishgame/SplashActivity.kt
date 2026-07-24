@@ -12,6 +12,16 @@ import com.noahbella.englishgame.databinding.ActivitySplashBinding
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
+    private val handler = Handler(Looper.getMainLooper())
+    private var dotCount = 0
+
+    private val loadingRunnable = object : Runnable {
+        override fun run() {
+            dotCount = (dotCount % 3) + 1
+            binding.tvLoading.text = "Cargando" + ".".repeat(dotCount)
+            handler.postDelayed(this, 500)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,13 +39,21 @@ class SplashActivity : AppCompatActivity() {
 
         binding.tvNoahChar.startAnimation(bounce)
         binding.tvBellaChar.startAnimation(bounce)
-        binding.tvTitle.startAnimation(fadeIn)
-        binding.tvSubtitle.startAnimation(slideUp)
+        binding.bannerLayout.startAnimation(fadeIn)
+        binding.tvLoading.startAnimation(slideUp)
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        handler.post(loadingRunnable)
+
+        handler.postDelayed({
+            handler.removeCallbacks(loadingRunnable)
             startActivity(Intent(this, HomeActivity::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }, 3000)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(loadingRunnable)
     }
 }
