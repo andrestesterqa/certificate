@@ -37,8 +37,17 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:fontFamily="sans-serif-rounded"
-            android:gravity="center"
-            android:layout_marginEnd="44dp" />
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:text="🔄"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_button_back"
+            android:padding="0dp" />
     </LinearLayout>
 
     <!-- Noah & Bella mascots -->
@@ -53,22 +62,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🐱 Noah"
-            android:textSize="16sp"
-            android:textColor="#AADDFF"
-            android:fontFamily="sans-serif-rounded"
-            android:layout_marginEnd="24dp" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="24dp">
 
-        <TextView
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_noah_full"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Noah"
+                android:textSize="13sp"
+                android:textColor="#AADDFF"
+                android:fontFamily="sans-serif-rounded" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bella 🐱"
-            android:textSize="16sp"
-            android:textColor="#FFAAD4"
-            android:fontFamily="sans-serif-rounded" />
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_bella_full"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bella"
+                android:textSize="13sp"
+                android:textColor="#FFAAD4"
+                android:fontFamily="sans-serif-rounded" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Level Grid -->

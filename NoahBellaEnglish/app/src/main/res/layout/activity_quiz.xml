@@ -113,15 +113,22 @@
                 android:shadowDy="2"
                 android:shadowRadius="3" />
 
-            <!-- Emoji hint -->
-            <TextView
-                android:id="@+id/tvQuestionDisplay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🍎"
-                android:textSize="68sp"
-                android:gravity="center"
-                android:layout_marginTop="4dp" />
+            <!-- Emoji hint with warm stage background -->
+            <FrameLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_emoji_stage">
+
+                <TextView
+                    android:id="@+id/tvQuestionDisplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="🍎"
+                    android:textSize="68sp"
+                    android:gravity="center" />
+            </FrameLayout>
 
             <!-- TTS button -->
             <Button

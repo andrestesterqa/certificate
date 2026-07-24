@@ -37,8 +37,8 @@ class SplashActivity : AppCompatActivity() {
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
 
-        binding.tvNoahChar.startAnimation(bounce)
-        binding.tvBellaChar.startAnimation(bounce)
+        binding.ivNoahChar.startAnimation(bounce)
+        binding.ivBellaChar.startAnimation(bounce)
         binding.bannerLayout.startAnimation(fadeIn)
         binding.tvLoading.startAnimation(slideUp)
 

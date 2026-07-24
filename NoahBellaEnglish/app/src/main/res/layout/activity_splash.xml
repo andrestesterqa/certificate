@@ -116,13 +116,12 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/tvNoahChar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🐱"
-                android:textSize="96sp"
-                android:gravity="center" />
+            <ImageView
+                android:id="@+id/ivNoahChar"
+                android:layout_width="110dp"
+                android:layout_height="165dp"
+                android:src="@drawable/ic_noah_full"
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -147,13 +146,12 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/tvBellaChar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🐱"
-                android:textSize="96sp"
-                android:gravity="center" />
+            <ImageView
+                android:id="@+id/ivBellaChar"
+                android:layout_width="110dp"
+                android:layout_height="165dp"
+                android:src="@drawable/ic_bella_full"
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:layout_width="wrap_content"

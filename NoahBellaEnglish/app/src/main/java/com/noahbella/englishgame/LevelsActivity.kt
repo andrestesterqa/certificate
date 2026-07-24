@@ -1,5 +1,6 @@
 package com.noahbella.englishgame
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
@@ -27,6 +28,17 @@ class LevelsActivity : AppCompatActivity() {
 
         prefs = PreferencesManager(this)
         binding.btnBack.setOnClickListener { finish() }
+        binding.btnReset.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("🔄 Reiniciar Progreso")
+                .setMessage("¿Seguro que quieres borrar todo tu progreso?\n\nPerderás todas las estrellas y volverás al inicio de cada aventura.")
+                .setPositiveButton("Sí, reiniciar") { _, _ ->
+                    prefs.resetAllProgress()
+                    setupLevelGrid()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
         binding.rvLevels.layoutManager = GridLayoutManager(this, 2)
     }
 

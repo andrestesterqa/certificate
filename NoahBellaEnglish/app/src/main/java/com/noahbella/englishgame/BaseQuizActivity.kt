@@ -106,8 +106,10 @@ abstract class BaseQuizActivity : AppCompatActivity() {
         binding.btnD.text = answers[3]
 
         val anim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        binding.tvQuestionDisplay.startAnimation(anim)
         binding.cardQuestion.startAnimation(anim)
+
+        val pulse = AnimationUtils.loadAnimation(this, R.anim.pulse)
+        binding.tvQuestionDisplay.startAnimation(pulse)
 
         Handler(Looper.getMainLooper()).postDelayed({
             soundManager.speak(q.englishWord)
@@ -116,6 +118,7 @@ abstract class BaseQuizActivity : AppCompatActivity() {
 
     private fun onAnswerSelected(selected: String, tappedBtn: Button) {
         answered = true
+        binding.tvQuestionDisplay.clearAnimation()
         val correct = questions[currentIndex].correctAnswer
 
         if (selected == correct) {
@@ -186,6 +189,7 @@ abstract class BaseQuizActivity : AppCompatActivity() {
             putExtra(LevelCompleteActivity.EXTRA_STARS, stars)
             putExtra(LevelCompleteActivity.EXTRA_SCORE, correctCount)
             putExtra(LevelCompleteActivity.EXTRA_TOTAL, questions.size)
+            putExtra(LevelCompleteActivity.EXTRA_LEVEL_ID, getLevelId())
             putExtra(LevelCompleteActivity.EXTRA_LEVEL_NAME, getLevelName())
             putExtra(LevelCompleteActivity.EXTRA_LEVEL_EMOJI, getLevelEmoji())
             putExtra(LevelCompleteActivity.EXTRA_ADVENTURE_ENDING, getAdventureEnding())

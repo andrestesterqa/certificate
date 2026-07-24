@@ -18,7 +18,11 @@ class PreferencesManager(context: Context) {
 
     fun isLevelUnlocked(levelId: Int): Boolean {
         if (levelId == 1) return true
-        return getLevelStars(levelId - 1) >= 1
+        return getLevelStars(levelId - 1) >= 3
+    }
+
+    fun resetAllProgress() {
+        prefs.edit().clear().apply()
     }
 
     fun getTotalStars(): Int = (1..6).sumOf { getLevelStars(it) }
